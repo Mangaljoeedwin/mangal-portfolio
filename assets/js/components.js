@@ -16,7 +16,7 @@ const active=x=>page===x?' aria-current="page"':'';
 });
 
 const ensureStylesheet=(href,id)=>{
-  if(document.getElementById(id)||document.querySelector(`link[href^="${href}"]`))return;
+  if(document.getElementById(id)||document.querySelector(`link[href^="${href.split('?')[0]}"]`))return;
   const link=document.createElement('link');
   link.id=id;
   link.rel='stylesheet';
@@ -25,7 +25,7 @@ const ensureStylesheet=(href,id)=>{
 };
 ensureStylesheet('assets/css/liquid-glass.css?v=20260903-4','liquid-glass-base');
 ensureStylesheet('assets/css/liquid-glass-refraction.css?v=20260903-4','liquid-glass-refraction');
-if(page!=='index.html')ensureStylesheet('assets/css/liquid-glass-inner.css?v=20260903-1','liquid-glass-inner');
+if(page!=='index.html')ensureStylesheet('assets/css/liquid-glass-inner.css?v=20260903-2','liquid-glass-inner');
 
 document.querySelectorAll('[data-header]').forEach(el=>el.innerHTML=`<header class="site-header"><div class="header-inner"><a class="brand" href="index.html"><span>M</span><div><b>Mangal Joe Edwin</b><small>PRODUCT MARKETING LEADER</small></div></a><nav aria-label="Main navigation"><a href="work.html"${active('work.html')}>Work</a><a href="operating-system.html"${active('operating-system.html')}>Operating System</a><a href="writing.html"${active('writing.html')}>Field Notes</a><a href="about.html"${active('about.html')}>About</a></nav><a class="header-cta" href="contact.html">Let’s talk ↗</a></div></header>`);
 
