@@ -61,24 +61,6 @@
   box-shadow:inset 0 1px 0 rgba(255,255,255,.34);
 }
 
-/* Temporary hero-image test: supplied teal glass artwork. Easy to revert. */
-.hero{
-  background-image:
-    linear-gradient(90deg,rgba(248,250,247,.90) 0%,rgba(248,250,247,.74) 38%,rgba(245,249,246,.46) 64%,rgba(236,247,242,.22) 100%),
-    url('../images/hero-glass.webp');
-  background-size:cover;
-  background-position:center center;
-  background-repeat:no-repeat;
-}
-.hero::before{display:none}
-.hero h1,
-.hero-copy,
-.hero .eyebrow,
-.hero-actions,
-.hero-proof{position:relative;z-index:1}
-.hero h1{max-width:1080px}
-.hero-copy{color:#394841}
-
 /* Make the footer monogram read clearly on the dark footer */
 footer .footer-brand>span{
   color:#10231f;
@@ -93,12 +75,6 @@ footer .footer-brand small{color:#aebdb6}
 @media(max-width:800px){
   [data-header]{top:10px}
   [data-header] .site-header::after{border-radius:19px}
-  .hero{
-    background-position:62% center;
-    background-image:
-      linear-gradient(180deg,rgba(248,250,247,.88) 0%,rgba(248,250,247,.76) 58%,rgba(241,248,244,.50) 100%),
-      url('../images/hero-glass.webp');
-  }
 }
 
 @media (prefers-reduced-transparency: reduce){
