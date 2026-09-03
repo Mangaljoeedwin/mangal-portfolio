@@ -1,0 +1,71 @@
+/* Refined sticky Liquid Glass behavior */
+[data-header]{
+  position:sticky;
+  top:18px;
+  z-index:1000;
+  width:100%;
+  pointer-events:none;
+}
+[data-header] .site-header{
+  position:relative;
+  top:auto;
+  pointer-events:auto;
+  isolation:isolate;
+  background:linear-gradient(135deg,rgba(255,255,255,.46),rgba(236,246,248,.20));
+  border:1px solid rgba(255,255,255,.82);
+  box-shadow:0 20px 50px rgba(26,41,48,.16),0 5px 14px rgba(26,41,48,.08),inset 0 1px 0 rgba(255,255,255,.96),inset 0 -1px 0 rgba(255,255,255,.24);
+  -webkit-backdrop-filter:blur(20px) saturate(185%) contrast(106%);
+  backdrop-filter:blur(20px) saturate(185%) contrast(106%);
+}
+[data-header] .site-header::before{
+  background:
+    linear-gradient(112deg,rgba(255,255,255,.58) 0%,rgba(255,255,255,.12) 32%,rgba(157,205,226,.14) 58%,rgba(255,255,255,.42) 100%),
+    radial-gradient(circle at 18% 0%,rgba(255,255,255,.7),transparent 34%);
+  opacity:.9;
+}
+[data-header] .site-header::after{
+  content:"";
+  position:absolute;
+  inset:1px;
+  border-radius:25px;
+  pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,255,255,.28),transparent 34%,rgba(119,170,190,.06) 70%,rgba(255,255,255,.12));
+  mix-blend-mode:screen;
+  opacity:.72;
+}
+[data-header].is-scrolled .site-header{
+  background:linear-gradient(135deg,rgba(248,252,252,.36),rgba(220,236,242,.18));
+  -webkit-backdrop-filter:blur(24px) saturate(205%) contrast(108%);
+  backdrop-filter:blur(24px) saturate(205%) contrast(108%);
+  box-shadow:0 24px 60px rgba(22,37,46,.20),0 7px 18px rgba(22,37,46,.10),inset 0 1px 0 rgba(255,255,255,.98),inset 0 -1px 0 rgba(166,210,226,.24);
+}
+[data-header].is-scrolled .site-header::before{
+  background:
+    linear-gradient(110deg,rgba(255,255,255,.66) 0%,rgba(255,255,255,.10) 29%,rgba(117,182,210,.18) 56%,rgba(255,255,255,.42) 100%),
+    radial-gradient(circle at 70% 20%,rgba(173,215,232,.20),transparent 32%);
+}
+
+/* Make the footer monogram read clearly on the dark footer */
+footer .footer-brand>span{
+  color:#10231f;
+  background:linear-gradient(145deg,#ffffff,#dce9e4);
+  border:1px solid rgba(255,255,255,.82);
+  box-shadow:0 5px 18px rgba(0,0,0,.30),inset 0 1px 0 rgba(255,255,255,1);
+  text-shadow:none;
+}
+footer .footer-brand b{color:#fff}
+footer .footer-brand small{color:#aebdb6}
+
+@media(max-width:800px){
+  [data-header]{top:10px}
+  [data-header] .site-header::after{border-radius:19px}
+}
+
+@media (prefers-reduced-transparency: reduce){
+  [data-header] .site-header,
+  [data-header].is-scrolled .site-header{
+    background:#f6f8f6;
+    -webkit-backdrop-filter:none;
+    backdrop-filter:none;
+  }
+}
