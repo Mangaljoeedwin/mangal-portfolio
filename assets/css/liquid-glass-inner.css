@@ -41,6 +41,7 @@
 
 /* Shared glass containers */
 .about-statement .wrap,
+.spotlight-card,
 .experience-grid,
 .three-principles,
 .os-principle .wrap,
@@ -68,6 +69,34 @@
 .about-statement p{
   color:#26352e;
   margin:0;
+}
+.spotlight-feature{
+  background:transparent;
+  padding:36px 0 18px;
+}
+.spotlight-card{
+  border-radius:28px;
+  padding:34px 38px;
+  display:grid;
+  grid-template-columns:1fr 1.25fr auto;
+  gap:34px;
+  align-items:center;
+}
+.spotlight-card h2{
+  font-size:clamp(30px,3vw,46px);
+  line-height:.98;
+  margin:12px 0 0;
+  max-width:520px;
+}
+.spotlight-card p{
+  color:#34443d;
+  margin:0;
+  font-size:18px;
+  line-height:1.55;
+}
+.spotlight-card .text-link{
+  white-space:nowrap;
+  align-self:end;
 }
 .experience-grid{
   border-radius:28px;
@@ -280,10 +309,21 @@
   margin-bottom:72px;
 }
 
+@media(max-width:1000px){
+  .spotlight-card{
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+  .spotlight-card .text-link{align-self:start}
+}
+
 @media(max-width:800px){
   .page-hero{padding-top:94px;padding-bottom:52px}
   .inner-page::before,.contact-page::before{width:92vw;right:-48vw;top:72px;opacity:.55}
-  .about-statement .wrap,.experience-grid,.os-principle .wrap,.os-questions .wrap,.knowledge-next .wrap{padding:26px}
+  .about-statement .wrap,.spotlight-card,.experience-grid,.os-principle .wrap,.os-questions .wrap,.knowledge-next .wrap{padding:26px}
+  .spotlight-feature{padding:20px 0 12px}
+  .spotlight-card h2{font-size:30px}
+  .spotlight-card p{font-size:16px}
   .three-principles article,.three-principles article:first-child{padding:26px !important}
   .filter-bar{border-radius:22px;margin-bottom:22px}
   .case-study summary{padding:26px !important}
@@ -300,7 +340,7 @@
 }
 
 @media (prefers-reduced-transparency: reduce){
-  .about-statement .wrap,.experience-grid,.three-principles,.os-principle .wrap,.os-stages,.os-questions .wrap,.filter-bar,.case-study,.notes-tools,.notes-cards article,.knowledge-next .wrap,.contact-card,.closing{
+  .about-statement .wrap,.spotlight-card,.experience-grid,.three-principles,.os-principle .wrap,.os-stages,.os-questions .wrap,.filter-bar,.case-study,.notes-tools,.notes-cards article,.knowledge-next .wrap,.contact-card,.closing{
     background:#f7f8f4;
     -webkit-backdrop-filter:none;
     backdrop-filter:none;
