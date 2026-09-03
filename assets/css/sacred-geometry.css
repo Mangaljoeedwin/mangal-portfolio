@@ -1,0 +1,86 @@
+/* Sacred geometry layer: restrained overlapping-circle construction */
+.sacred-geometry-field{
+  position:fixed;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  opacity:.26;
+  background-image:
+    radial-gradient(circle at 50% 50%,transparent 0 46px,rgba(63,104,95,.10) 47px 48px,transparent 49px),
+    radial-gradient(circle at calc(50% - 42px) calc(50% - 24px),transparent 0 46px,rgba(75,111,127,.08) 47px 48px,transparent 49px),
+    radial-gradient(circle at calc(50% + 42px) calc(50% - 24px),transparent 0 46px,rgba(63,104,95,.08) 47px 48px,transparent 49px),
+    radial-gradient(circle at calc(50% - 42px) calc(50% + 24px),transparent 0 46px,rgba(109,116,94,.07) 47px 48px,transparent 49px),
+    radial-gradient(circle at calc(50% + 42px) calc(50% + 24px),transparent 0 46px,rgba(75,111,127,.07) 47px 48px,transparent 49px);
+  background-size:300px 260px;
+  background-position:24px 18px,24px 18px,24px 18px,24px 18px,24px 18px;
+  -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.82),rgba(0,0,0,.35) 52%,rgba(0,0,0,.6));
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.82),rgba(0,0,0,.35) 52%,rgba(0,0,0,.6));
+}
+body>[data-header],body>main,body>[data-footer]{position:relative;z-index:1}
+
+/* Geometry-bearing glass surfaces */
+.geometry-card{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  --geom-x:50%;
+  --geom-y:50%;
+}
+.geometry-card::after{
+  content:"";
+  position:absolute;
+  inset:-36px;
+  pointer-events:none;
+  z-index:0;
+  opacity:.18;
+  background-image:
+    radial-gradient(circle at 50% 50%,transparent 0 44px,rgba(56,100,90,.20) 45px 46px,transparent 47px),
+    radial-gradient(circle at calc(50% - 40px) calc(50% - 23px),transparent 0 44px,rgba(69,109,121,.18) 45px 46px,transparent 47px),
+    radial-gradient(circle at calc(50% + 40px) calc(50% - 23px),transparent 0 44px,rgba(56,100,90,.16) 45px 46px,transparent 47px),
+    radial-gradient(circle at calc(50% - 40px) calc(50% + 23px),transparent 0 44px,rgba(83,107,84,.15) 45px 46px,transparent 47px),
+    radial-gradient(circle at calc(50% + 40px) calc(50% + 23px),transparent 0 44px,rgba(69,109,121,.14) 45px 46px,transparent 47px),
+    radial-gradient(circle at var(--geom-x) var(--geom-y),rgba(80,165,145,.18),rgba(91,142,158,.08) 16%,transparent 34%);
+  background-size:230px 200px,230px 200px,230px 200px,230px 200px,230px 200px,100% 100%;
+  background-position:center,center,center,center,center,center;
+  transition:opacity .28s ease,filter .28s ease;
+}
+.geometry-card:hover::after{
+  opacity:.44;
+  filter:saturate(135%);
+}
+
+/* Dark work cards use lighter linework. */
+.work-card.geometry-card::after{
+  opacity:.16;
+  background-image:
+    radial-gradient(circle at 50% 50%,transparent 0 44px,rgba(203,229,237,.24) 45px 46px,transparent 47px),
+    radial-gradient(circle at calc(50% - 40px) calc(50% - 23px),transparent 0 44px,rgba(145,204,216,.20) 45px 46px,transparent 47px),
+    radial-gradient(circle at calc(50% + 40px) calc(50% - 23px),transparent 0 44px,rgba(171,215,194,.18) 45px 46px,transparent 47px),
+    radial-gradient(circle at calc(50% - 40px) calc(50% + 23px),transparent 0 44px,rgba(203,229,237,.18) 45px 46px,transparent 47px),
+    radial-gradient(circle at calc(50% + 40px) calc(50% + 23px),transparent 0 44px,rgba(171,215,194,.16) 45px 46px,transparent 47px),
+    radial-gradient(circle at var(--geom-x) var(--geom-y),rgba(118,201,184,.20),rgba(116,178,201,.10) 18%,transparent 36%);
+  background-size:230px 200px,230px 200px,230px 200px,230px 200px,230px 200px,100% 100%;
+}
+.work-card.geometry-card:hover::after{opacity:.42}
+
+/* Keep geometry subordinate to content. */
+.geometry-card>*{position:relative;z-index:1}
+
+@media(max-width:800px){
+  .sacred-geometry-field{opacity:.18;background-size:240px 208px}
+  .geometry-card::after{opacity:.14;transform:scale(.9)}
+  .geometry-card:hover::after{opacity:.14;filter:none}
+}
+
+@media (hover:none){
+  .geometry-card::after{opacity:.15}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .geometry-card::after{transition:none}
+}
+
+@media (prefers-reduced-transparency:reduce){
+  .sacred-geometry-field{opacity:.08}
+  .geometry-card::after{opacity:.08}
+}
