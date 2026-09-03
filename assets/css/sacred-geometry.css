@@ -12,6 +12,14 @@
 .hero.geometry-active .hero-flower .flower-lit{opacity:1}
 .hero .wrap{position:relative;z-index:2}
 
+/* Soft iridescent spectrum. The mask still limits this to the small pointer radius. */
+.hero-flower .flower-lit>*:nth-child(6n+1),.sacred-symbol .geo-lit svg>*:nth-child(6n+1){stroke:#f2a7c7}
+.hero-flower .flower-lit>*:nth-child(6n+2),.sacred-symbol .geo-lit svg>*:nth-child(6n+2){stroke:#efbf8f}
+.hero-flower .flower-lit>*:nth-child(6n+3),.sacred-symbol .geo-lit svg>*:nth-child(6n+3){stroke:#d8df8b}
+.hero-flower .flower-lit>*:nth-child(6n+4),.sacred-symbol .geo-lit svg>*:nth-child(6n+4){stroke:#89d4bd}
+.hero-flower .flower-lit>*:nth-child(6n+5),.sacred-symbol .geo-lit svg>*:nth-child(6n+5){stroke:#8fc9e7}
+.hero-flower .flower-lit>*:nth-child(6n),.sacred-symbol .geo-lit svg>*:nth-child(6n){stroke:#c5a8e8}
+
 /* Shared homepage sacred geometry */
 .has-sacred-geometry{position:relative!important;isolation:isolate;overflow:hidden}
 .has-sacred-geometry>.sacred-symbol{z-index:0}
