@@ -109,13 +109,19 @@ body::after{right:-10vw;top:38vh;background:rgba(161,184,133,.34)}
   max-width:1080px;
   text-wrap:balance;
   text-shadow:0 1px 0 rgba(255,255,255,.7);
+  padding-right:.12em;
 }
 .hero h1 em{
+  display:inline;
   background:linear-gradient(100deg,#334f61 0%,#456d79 45%,#536b54 100%);
   -webkit-background-clip:text;
   background-clip:text;
   color:transparent;
   text-shadow:0 1px 0 rgba(255,255,255,.16);
+  padding-right:.09em;
+  margin-right:-.04em;
+  -webkit-box-decoration-break:clone;
+  box-decoration-break:clone;
 }
 .hero-copy{color:rgba(45,58,50,.82)}
 .eyebrow{
