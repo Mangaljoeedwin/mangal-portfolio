@@ -1,5 +1,13 @@
 document.addEventListener('DOMContentLoaded',()=>{
   const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const headerHost=document.querySelector('[data-header]');
+  const updateHeaderState=()=>{
+    if(!headerHost)return;
+    headerHost.classList.toggle('is-scrolled',window.scrollY>24);
+  };
+  updateHeaderState();
+  window.addEventListener('scroll',updateHeaderState,{passive:true});
+
   if(reduceMotion)return;
   document.querySelectorAll('.glass-surface').forEach(el=>{
     el.addEventListener('pointermove',e=>{
