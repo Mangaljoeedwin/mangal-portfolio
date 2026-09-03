@@ -36,6 +36,11 @@
 .sacred-symbol .geo-lit svg{fill:none;stroke-width:2.2;filter:drop-shadow(0 0 5px rgba(255,255,255,.14))}
 .has-sacred-geometry.geometry-active>.sacred-symbol .geo-lit{opacity:1}
 
+/* No geometry in these homepage folds. */
+.clarity-flow>.sacred-symbol,
+.system-map>.sacred-symbol,
+.notes-section>.sacred-symbol{display:none!important}
+
 /* Capabilities: show the full symbol consistently inside each card. */
 .capability-card.has-sacred-geometry{--geo-size:44%;--geo-right:22px;--geo-top:22px}
 .capability-card:nth-child(2).has-sacred-geometry,.capability-card:nth-child(3).has-sacred-geometry{--geo-size:44%;--geo-right:22px;--geo-top:22px}
@@ -47,9 +52,9 @@
 .work-card .sacred-symbol .geo-rest svg{stroke:#36505e;opacity:.24;filter:none}
 .work-card .sacred-symbol .geo-lit svg{filter:drop-shadow(0 0 5px rgba(190,215,255,.10))}
 
-.system-map.has-sacred-geometry{--geo-size:118%;--geo-right:-36%;--geo-top:-12%}
-.notes-section.has-sacred-geometry{--geo-size:min(760px,62vw);--geo-right:-7%;--geo-top:1%}
-.closing.has-sacred-geometry{--geo-size:68%;--geo-right:-18%;--geo-top:-62%}
+/* Closing: small complete symbol, fully visible inside the CTA block. */
+.closing.has-sacred-geometry{--geo-size:34%;--geo-right:36px;--geo-top:18%}
+.closing .sacred-symbol .geo-rest svg{opacity:.54}
 
 @media(max-width:800px){
   .hero-flower-wrap{width:720px;right:-310px;top:-8px}
@@ -59,7 +64,7 @@
   .sacred-symbol .geo-rest svg{opacity:.46}
   .sacred-symbol .geo-lit{display:none}
   .capability-card.has-sacred-geometry,.capability-card:nth-child(2).has-sacred-geometry,.capability-card:nth-child(3).has-sacred-geometry{--geo-mobile-size:42%;--geo-right:18px;--geo-top:18px}
-  .notes-section.has-sacred-geometry{--geo-mobile-size:140%}
+  .closing.has-sacred-geometry{--geo-mobile-size:46%;--geo-right:18px;--geo-top:18px}
 }
 @media(hover:none){.hero-flower .flower-lit,.sacred-symbol .geo-lit{display:none}}
 @media(prefers-reduced-motion:reduce){.hero-flower .flower-lit,.sacred-symbol .geo-lit{transition:none}}
