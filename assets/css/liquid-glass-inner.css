@@ -1,0 +1,192 @@
+/* Shared Liquid Glass treatment for portfolio inner pages */
+.inner-page,
+.contact-page{
+  position:relative;
+  isolation:isolate;
+}
+
+.inner-page::before,
+.contact-page::before{
+  content:"";
+  position:absolute;
+  width:min(640px,58vw);
+  aspect-ratio:1;
+  right:-12vw;
+  top:42px;
+  border-radius:50%;
+  background:radial-gradient(circle at 36% 30%,rgba(255,255,255,.82),rgba(179,207,219,.30) 30%,rgba(160,188,151,.20) 54%,transparent 73%);
+  filter:blur(3px);
+  opacity:.72;
+  pointer-events:none;
+  z-index:-1;
+}
+
+.page-hero{
+  position:relative;
+  padding-top:128px;
+  padding-bottom:72px;
+}
+.page-hero h1{
+  text-shadow:0 1px 0 rgba(255,255,255,.72);
+}
+.page-hero h1 em{
+  background:linear-gradient(100deg,#334f61 0%,#456d79 45%,#536b54 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  padding-right:.08em;
+  margin-right:-.08em;
+}
+
+/* Shared glass containers */
+.about-statement .wrap,
+.experience-grid,
+.three-principles,
+.os-principle .wrap,
+.os-stages,
+.os-questions .wrap,
+.filter-bar,
+.case-study,
+.notes-tools,
+.notes-cards article,
+.knowledge-next .wrap,
+.contact-card{
+  border:1px solid rgba(255,255,255,.68);
+  background:linear-gradient(135deg,rgba(255,255,255,.42),rgba(255,255,255,.18));
+  box-shadow:0 18px 52px rgba(30,44,36,.09),inset 0 1px 0 rgba(255,255,255,.72);
+  -webkit-backdrop-filter:blur(20px) saturate(140%);
+  backdrop-filter:blur(20px) saturate(140%);
+}
+
+.about-statement{background:transparent}
+.about-statement .wrap{
+  border-radius:28px;
+  padding:42px;
+}
+.experience-grid{
+  border-radius:28px;
+  padding:38px;
+}
+.experience-list>div{border-color:rgba(55,70,61,.12)}
+.about-work{background:transparent}
+.three-principles{
+  border-radius:28px;
+  overflow:hidden;
+}
+.three-principles article{border-color:rgba(55,70,61,.12)}
+
+.filter-bar{
+  border-radius:999px;
+  padding:8px;
+}
+.filter-bar button{
+  border-radius:999px;
+  transition:background .25s ease,box-shadow .25s ease,transform .25s ease;
+}
+.filter-bar button:hover,
+.filter-bar button.active{
+  background:rgba(255,255,255,.56);
+  box-shadow:0 6px 16px rgba(23,33,29,.08),inset 0 1px 0 rgba(255,255,255,.82);
+}
+.case-list{display:grid;gap:18px}
+.case-study{
+  border-radius:26px;
+  overflow:hidden;
+}
+.case-study summary{border-color:rgba(55,70,61,.12)}
+.case-study[open]{background:linear-gradient(135deg,rgba(255,255,255,.52),rgba(244,248,246,.24))}
+.case-body,.execution,.impact-learning{border-color:rgba(55,70,61,.12)}
+.case-metric{
+  background:rgba(255,255,255,.28);
+  border:1px solid rgba(255,255,255,.58);
+  border-radius:18px;
+  padding:12px 14px;
+}
+
+.os-principle{background:transparent}
+.os-principle .wrap{
+  border-radius:28px;
+  padding:42px;
+}
+.os-stages{
+  border-radius:28px;
+  overflow:hidden;
+  padding:0;
+}
+.os-stages article{border-color:rgba(55,70,61,.12)}
+.os-stages article.accent{
+  background:linear-gradient(145deg,rgba(35,57,68,.88),rgba(66,92,92,.72));
+  color:#fff;
+}
+.os-questions{background:transparent}
+.os-questions .wrap{
+  border-radius:28px;
+  padding:38px;
+}
+
+.notes-tools{
+  border-radius:24px;
+  padding:10px;
+}
+.search,
+.note-filters{
+  background:rgba(255,255,255,.20);
+  border-color:rgba(255,255,255,.48);
+}
+.note-filters button{border-radius:999px}
+.note-filters button.active,
+.note-filters button:hover{background:rgba(255,255,255,.58)}
+.notes-cards{gap:16px}
+.notes-cards article{
+  border-radius:26px;
+  transition:transform .25s ease,background .25s ease;
+}
+.notes-cards article:hover{
+  transform:translateY(-3px);
+  background:linear-gradient(135deg,rgba(255,255,255,.56),rgba(255,255,255,.24));
+}
+.knowledge-next{background:transparent}
+.knowledge-next .wrap{
+  border-radius:28px;
+  padding:38px;
+}
+
+.contact-page{
+  min-height:calc(100vh - 40px);
+  padding-top:118px;
+}
+.contact-grid{position:relative;z-index:1}
+.contact-card{
+  border-radius:30px;
+}
+.contact-links a{border-color:rgba(55,70,61,.12)}
+.availability{border-color:rgba(55,70,61,.12)}
+
+.closing{
+  border:1px solid rgba(255,255,255,.66);
+  border-radius:30px;
+  background:linear-gradient(135deg,rgba(255,255,255,.34),rgba(255,255,255,.14));
+  box-shadow:0 18px 50px rgba(30,44,36,.08),inset 0 1px 0 rgba(255,255,255,.68);
+  -webkit-backdrop-filter:blur(18px) saturate(135%);
+  backdrop-filter:blur(18px) saturate(135%);
+  padding-left:36px;
+  padding-right:36px;
+  margin-bottom:72px;
+}
+
+@media(max-width:800px){
+  .page-hero{padding-top:94px;padding-bottom:52px}
+  .inner-page::before,.contact-page::before{width:92vw;right:-48vw;top:72px;opacity:.55}
+  .about-statement .wrap,.experience-grid,.os-principle .wrap,.os-questions .wrap,.knowledge-next .wrap{padding:26px}
+  .filter-bar{border-radius:22px}
+  .contact-page{padding-top:88px}
+  .closing{padding-left:24px;padding-right:24px;margin-left:12px;margin-right:12px}
+}
+
+@media (prefers-reduced-transparency: reduce){
+  .about-statement .wrap,.experience-grid,.three-principles,.os-principle .wrap,.os-stages,.os-questions .wrap,.filter-bar,.case-study,.notes-tools,.notes-cards article,.knowledge-next .wrap,.contact-card,.closing{
+    background:#f7f8f4;
+    -webkit-backdrop-filter:none;
+    backdrop-filter:none;
+  }
+}
