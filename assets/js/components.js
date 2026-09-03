@@ -26,7 +26,7 @@ const ensureStylesheet=(href,id)=>{
 ensureStylesheet('assets/css/liquid-glass.css?v=20260903-4','liquid-glass-base');
 ensureStylesheet('assets/css/liquid-glass-refraction.css?v=20260903-4','liquid-glass-refraction');
 ensureStylesheet('assets/css/mobile-refinements.css?v=20260903-1','mobile-refinements');
-ensureStylesheet('assets/css/sacred-geometry.css?v=20260903-2','sacred-geometry');
+ensureStylesheet('assets/css/sacred-geometry.css?v=20260903-5','sacred-geometry');
 if(page!=='index.html')ensureStylesheet('assets/css/liquid-glass-inner.css?v=20260903-2','liquid-glass-inner');
 
 document.querySelectorAll('[data-header]').forEach(el=>el.innerHTML=`<header class="site-header"><div class="header-inner"><a class="brand" href="index.html"><span>M</span><div><b>Mangal Joe Edwin</b><small>PRODUCT MARKETING LEADER</small></div></a><nav aria-label="Main navigation"><a href="work.html"${active('work.html')}>Work</a><a href="operating-system.html"${active('operating-system.html')}>Operating System</a><a href="writing.html"${active('writing.html')}>Field Notes</a><a href="about.html"${active('about.html')}>About</a></nav><a class="header-cta" href="contact.html">Let’s talk ↗</a><button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav"><span class="menu-glyph"><span></span></span><span>Menu</span></button></div><div class="mobile-menu" id="mobile-nav"><div><div class="mobile-menu-panel"><a href="work.html"${active('work.html')}>Work <span>↗</span></a><a href="operating-system.html"${active('operating-system.html')}>Operating System <span>↗</span></a><a href="writing.html"${active('writing.html')}>Field Notes <span>↗</span></a><a href="about.html"${active('about.html')}>About <span>↗</span></a><a class="mobile-contact" href="contact.html">Let’s talk <span>↗</span></a></div></div></div></header>`);
@@ -61,18 +61,22 @@ document.querySelectorAll('.mobile-menu-toggle').forEach(toggle=>{
   });
 });
 
-/* Hero sacred-geometry illumination. The symbol stays muted until the pointer approaches it. */
+/* Local Flower of Life illumination, matching the soft Selected Work pointer glow. */
 const hero=document.querySelector('.hero');
-if(hero&&window.matchMedia('(hover:hover)').matches){
+const flowerWrap=hero?.querySelector('.hero-flower-wrap');
+if(hero&&flowerWrap&&window.matchMedia('(hover:hover)').matches){
   hero.addEventListener('pointermove',e=>{
-    const r=hero.getBoundingClientRect();
-    hero.style.setProperty('--hero-geom-x',`${e.clientX-r.left}px`);
-    hero.style.setProperty('--hero-geom-y',`${e.clientY-r.top}px`);
-    hero.classList.add('geometry-active');
+    const r=flowerWrap.getBoundingClientRect();
+    const x=((e.clientX-r.left)/r.width)*100;
+    const y=((e.clientY-r.top)/r.height)*100;
+    flowerWrap.style.setProperty('--flower-x',`${x}%`);
+    flowerWrap.style.setProperty('--flower-y',`${y}%`);
+    const inside=e.clientX>=r.left-130&&e.clientX<=r.right+130&&e.clientY>=r.top-130&&e.clientY<=r.bottom+130;
+    hero.classList.toggle('geometry-active',inside);
   });
   hero.addEventListener('pointerleave',()=>{
     hero.classList.remove('geometry-active');
-    hero.style.removeProperty('--hero-geom-x');
-    hero.style.removeProperty('--hero-geom-y');
+    flowerWrap.style.removeProperty('--flower-x');
+    flowerWrap.style.removeProperty('--flower-y');
   });
 }
