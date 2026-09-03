@@ -8,17 +8,21 @@
 .hero-flower-wrap{position:absolute;width:min(1040px,82vw);aspect-ratio:1;right:-185px;top:-70px;pointer-events:none;z-index:1;--flower-x:50%;--flower-y:50%}
 .hero-flower{width:100%;height:100%;overflow:visible;display:block}
 .hero-flower .flower-rest{fill:none;stroke:#f8fffb;stroke-width:1.65;opacity:.68;filter:drop-shadow(0 0 2px rgba(255,255,255,.34))}
-.hero-flower .flower-lit{fill:none;stroke-width:2.25;opacity:0;filter:drop-shadow(0 0 5px rgba(255,210,242,.16));-webkit-mask-image:radial-gradient(circle 115px at var(--flower-x) var(--flower-y),#000 0 18%,rgba(0,0,0,.9) 38%,rgba(0,0,0,.46) 62%,transparent 100%);mask-image:radial-gradient(circle 115px at var(--flower-x) var(--flower-y),#000 0 18%,rgba(0,0,0,.9) 38%,rgba(0,0,0,.46) 62%,transparent 100%);-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;transition:opacity .14s ease}
+.hero-flower .flower-lit{fill:none;stroke-width:2.25;opacity:0;filter:drop-shadow(0 0 5px rgba(121,205,183,.16));-webkit-mask-image:radial-gradient(circle 115px at var(--flower-x) var(--flower-y),#000 0 18%,rgba(0,0,0,.9) 38%,rgba(0,0,0,.46) 62%,transparent 100%);mask-image:radial-gradient(circle 115px at var(--flower-x) var(--flower-y),#000 0 18%,rgba(0,0,0,.9) 38%,rgba(0,0,0,.46) 62%,transparent 100%);-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;transition:opacity .14s ease}
 .hero.geometry-active .hero-flower .flower-lit{opacity:1}
 .hero .wrap{position:relative;z-index:2}
 
-/* Soft iridescent spectrum. The mask still limits this to the small pointer radius. */
-.hero-flower .flower-lit>*:nth-child(6n+1),.sacred-symbol .geo-lit svg>*:nth-child(6n+1){stroke:#f2a7c7}
-.hero-flower .flower-lit>*:nth-child(6n+2),.sacred-symbol .geo-lit svg>*:nth-child(6n+2){stroke:#efbf8f}
-.hero-flower .flower-lit>*:nth-child(6n+3),.sacred-symbol .geo-lit svg>*:nth-child(6n+3){stroke:#d8df8b}
-.hero-flower .flower-lit>*:nth-child(6n+4),.sacred-symbol .geo-lit svg>*:nth-child(6n+4){stroke:#89d4bd}
-.hero-flower .flower-lit>*:nth-child(6n+5),.sacred-symbol .geo-lit svg>*:nth-child(6n+5){stroke:#8fc9e7}
-.hero-flower .flower-lit>*:nth-child(6n),.sacred-symbol .geo-lit svg>*:nth-child(6n){stroke:#c5a8e8}
+/* Hero uses only two existing site hues: teal and muted blue. */
+.hero-flower .flower-lit>*:nth-child(odd){stroke:#79cdb7}
+.hero-flower .flower-lit>*:nth-child(even){stroke:#8fc9e7}
+
+/* Soft iridescent spectrum for the rest of the homepage. */
+.sacred-symbol .geo-lit svg>*:nth-child(6n+1){stroke:#f2a7c7}
+.sacred-symbol .geo-lit svg>*:nth-child(6n+2){stroke:#efbf8f}
+.sacred-symbol .geo-lit svg>*:nth-child(6n+3){stroke:#d8df8b}
+.sacred-symbol .geo-lit svg>*:nth-child(6n+4){stroke:#89d4bd}
+.sacred-symbol .geo-lit svg>*:nth-child(6n+5){stroke:#8fc9e7}
+.sacred-symbol .geo-lit svg>*:nth-child(6n){stroke:#c5a8e8}
 
 /* Shared homepage sacred geometry */
 .has-sacred-geometry{position:relative!important;isolation:isolate;overflow:hidden}
