@@ -1,33 +1,30 @@
-/* Hero sacred geometry: actual inline SVG, with local pointer illumination. */
+/* Sacred geometry system: one large symbol per area, pale at rest, locally illuminated on hover. */
 .sacred-geometry-field{display:none!important}
 .geometry-card::after{content:none!important}
 
 .hero::before,
 .hero::after{content:none!important}
 
+/* Hero Flower of Life */
 .hero{position:relative;isolation:isolate;--hero-geom-x:78%;--hero-geom-y:44%}
 .hero-flower-wrap{
   position:absolute;
-  width:min(820px,66vw);
+  width:min(1040px,82vw);
   aspect-ratio:1;
-  right:-95px;
-  top:24px;
+  right:-185px;
+  top:-70px;
   pointer-events:none;
   z-index:1;
   --flower-x:50%;
   --flower-y:50%;
 }
-.hero-flower{
-  width:100%;
-  height:100%;
-  overflow:visible;
-  display:block;
-}
+.hero-flower{width:100%;height:100%;overflow:visible;display:block}
 .hero-flower .flower-rest{
   fill:none;
-  stroke:#d9e6df;
-  stroke-width:1.55;
-  opacity:.72;
+  stroke:#f8fffb;
+  stroke-width:1.65;
+  opacity:.68;
+  filter:drop-shadow(0 0 2px rgba(255,255,255,.34));
 }
 .hero-flower .flower-lit{
   fill:none;
@@ -44,11 +41,85 @@
 .hero.geometry-active .hero-flower .flower-lit{opacity:1}
 .hero .wrap{position:relative;z-index:2}
 
-@media(max-width:800px){
-  .hero-flower-wrap{width:590px;right:-235px;top:58px}
-  .hero-flower .flower-rest{opacity:.58}
-  .hero-flower .flower-lit{display:none}
+/* Shared homepage sacred geometry */
+.has-sacred-geometry{
+  position:relative!important;
+  isolation:isolate;
+  overflow:hidden;
 }
-@media(hover:none){.hero-flower .flower-lit{display:none}}
-@media(prefers-reduced-motion:reduce){.hero-flower .flower-lit{transition:none}}
-@media(prefers-reduced-transparency:reduce){.hero-flower .flower-rest{opacity:.46}.hero-flower .flower-lit{display:none}}
+.has-sacred-geometry>.sacred-symbol{z-index:0}
+.has-sacred-geometry>:not(.sacred-symbol){position:relative;z-index:2}
+.sacred-symbol{
+  position:absolute;
+  width:var(--geo-size,78%);
+  aspect-ratio:1;
+  right:var(--geo-right,-18%);
+  top:var(--geo-top,-24%);
+  pointer-events:none;
+  --geo-x:50%;
+  --geo-y:50%;
+}
+.sacred-symbol svg{width:100%;height:100%;display:block;overflow:visible}
+.sacred-symbol .geo-rest,
+.sacred-symbol .geo-lit{
+  position:absolute;
+  inset:0;
+}
+.sacred-symbol .geo-rest svg{
+  fill:none;
+  stroke:#fbfffd;
+  stroke-width:1.7;
+  opacity:.62;
+  filter:drop-shadow(0 0 2px rgba(255,255,255,.28));
+}
+.sacred-symbol .geo-lit{
+  opacity:0;
+  -webkit-mask-image:radial-gradient(circle 110px at var(--geo-x) var(--geo-y),#000 0 18%,rgba(0,0,0,.9) 38%,rgba(0,0,0,.45) 64%,transparent 100%);
+  mask-image:radial-gradient(circle 110px at var(--geo-x) var(--geo-y),#000 0 18%,rgba(0,0,0,.9) 38%,rgba(0,0,0,.45) 64%,transparent 100%);
+  -webkit-mask-repeat:no-repeat;
+  mask-repeat:no-repeat;
+  transition:opacity .14s ease;
+}
+.sacred-symbol .geo-lit svg{
+  fill:none;
+  stroke:#74cbb5;
+  stroke-width:2.2;
+  filter:drop-shadow(0 0 5px rgba(116,203,181,.26));
+}
+.has-sacred-geometry.geometry-active>.sacred-symbol .geo-lit{opacity:1}
+
+/* Placement rhythm, one symbol per composition. */
+.clarity-flow.has-sacred-geometry{--geo-size:72%;--geo-right:-16%;--geo-top:-72%}
+.capability-card.has-sacred-geometry{--geo-size:112%;--geo-right:-46%;--geo-top:-18%}
+.capability-card:nth-child(2).has-sacred-geometry{--geo-right:-38%;--geo-top:4%}
+.capability-card:nth-child(3).has-sacred-geometry{--geo-size:108%;--geo-right:-36%;--geo-top:-8%}
+.work-card.has-sacred-geometry{--geo-size:104%;--geo-right:-42%;--geo-top:-12%}
+.work-card:nth-child(even).has-sacred-geometry{--geo-right:-34%;--geo-top:8%}
+.system-map.has-sacred-geometry{--geo-size:118%;--geo-right:-36%;--geo-top:-12%}
+.notes-section.has-sacred-geometry{--geo-size:min(760px,62vw);--geo-right:-7%;--geo-top:1%}
+.closing.has-sacred-geometry{--geo-size:68%;--geo-right:-18%;--geo-top:-62%}
+
+/* Dark selected-work cards still use pale resting lines, then teal illumination. */
+.work-card .sacred-symbol .geo-rest svg{
+  stroke:#dff5f3;
+  opacity:.22;
+  filter:drop-shadow(0 0 2px rgba(223,245,243,.12));
+}
+.work-card .sacred-symbol .geo-lit svg{stroke:#86d8c4}
+
+@media(max-width:800px){
+  .hero-flower-wrap{width:720px;right:-310px;top:-8px}
+  .hero-flower .flower-rest{opacity:.56}
+  .hero-flower .flower-lit{display:none}
+  .sacred-symbol{width:var(--geo-mobile-size,108%);right:-42%;top:-8%}
+  .sacred-symbol .geo-rest svg{opacity:.46}
+  .sacred-symbol .geo-lit{display:none}
+  .notes-section.has-sacred-geometry{--geo-mobile-size:140%}
+}
+@media(hover:none){.hero-flower .flower-lit,.sacred-symbol .geo-lit{display:none}}
+@media(prefers-reduced-motion:reduce){.hero-flower .flower-lit,.sacred-symbol .geo-lit{transition:none}}
+@media(prefers-reduced-transparency:reduce){
+  .hero-flower .flower-rest{opacity:.44}
+  .hero-flower .flower-lit,.sacred-symbol .geo-lit{display:none}
+  .sacred-symbol .geo-rest svg{opacity:.34}
+}
