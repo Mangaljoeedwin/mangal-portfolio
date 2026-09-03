@@ -1,0 +1,43 @@
+/* About page spotlight card refinements */
+.spotlight-feature{background:transparent;padding:36px 0 18px}
+.spotlight-card{
+  border-radius:28px;
+  padding:44px;
+  display:grid;
+  grid-template-columns:minmax(0,.95fr) minmax(0,1fr);
+  gap:48px;
+  align-items:end;
+}
+.spotlight-card h2{
+  font-family:Georgia,'Times New Roman',serif;
+  font-size:clamp(36px,4.2vw,66px);
+  line-height:.98;
+  letter-spacing:-.05em;
+  font-weight:400;
+  color:var(--ink);
+  max-width:620px;
+  margin:24px 0 0;
+}
+.spotlight-card p{
+  color:#26352e;
+  font-family:Georgia,'Times New Roman',serif;
+  font-size:20px;
+  line-height:1.55;
+  max-width:590px;
+  margin:0 0 54px;
+}
+.spotlight-card .text-link{
+  justify-self:end;
+  color:var(--ink);
+}
+@media(max-width:1000px){
+  .spotlight-card{grid-template-columns:1fr;gap:24px}
+  .spotlight-card .text-link{justify-self:start}
+  .spotlight-card p{margin-bottom:8px}
+}
+@media(max-width:800px){
+  .spotlight-feature{padding:20px 0 12px}
+  .spotlight-card{padding:26px}
+  .spotlight-card h2{font-size:clamp(34px,10vw,48px);margin-top:18px}
+  .spotlight-card p{font-size:18px}
+}
