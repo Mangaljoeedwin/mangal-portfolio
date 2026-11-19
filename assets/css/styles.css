@@ -11,3 +11,10 @@
 .explore-path p{color:var(--muted);max-width:520px;margin:0;font-size:14px;line-height:1.65}
 .explore-path b{border-top:1px solid var(--line);margin-top:auto;padding-top:20px;font-size:12px}
 @media(max-width:800px){.explore-paths{padding-top:18px}.explore-paths-grid{grid-template-columns:1fr}.explore-path{min-height:290px;padding:28px}.explore-path h3{margin-top:40px}}
+.case-context-link{background:var(--ink);color:#fff;border-radius:16px;display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:42px;padding:24px 26px;transition:transform .2s ease,background .2s ease}
+.case-context-link:hover,.case-context-link:focus-visible{background:#24322c;transform:translateY(-2px)}
+.case-context-link>span{display:flex;flex-direction:column;gap:7px}
+.case-context-link small{color:#aeb8b1;letter-spacing:.14em}
+.case-context-link strong{font:400 22px/1.25 Georgia,serif}
+.case-context-link b{border:1px solid #ffffff66;border-radius:999px;flex:0 0 auto;padding:11px 15px;font-size:11px}
+@media(max-width:800px){.case-context-link{align-items:flex-start;flex-direction:column;margin-bottom:30px;padding:21px}.case-context-link strong{font-size:19px}}
